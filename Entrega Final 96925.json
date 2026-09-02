@@ -1,0 +1,1194 @@
+{
+  "name": "Entrega Final 96925",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "# 1. Elige tu caso de uso ✔️\n\nSelecciona un **proceso de negocio**, propio o de un cliente ficticio, que requiera **interpretación de lenguaje natural**.\n\n### Ejemplos\n\n- Clasificación de leads VIP.\n- Triage/derivación/canalización \n  de tickets de soporte técnico.\n- Automatización de propuestas comerciales personalizadas.\n",
+        "height": 400,
+        "width": 352,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -240,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "957c1984-f3d7-4757-8088-0a90935c6c7d",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# 2. Estructura el “Cerebro” — Base de Datos 🗂️\n\nUtiliza **Airtable o Notion** para diseñar la infraestructura que funcionará como **memoria del sistema/base de datos**.\n\n### Campos obligatorios\n\nDebes incluir:\n\n- Campos de **estado**, por ejemplo:\n  - `Pendiente`\n  - `Procesado por IA`\n  - `Aprobado por Humano`\n- **Relaciones entre tablas**, evitando mantener información aislada o duplicada.\n\n#### Sincronización\n\nSi utilizas múltiples fuentes de información, la sincronización entre ellas debe ser gestionada mediante el **flujo de automatización**.\n\n#### OMNI AI\n\nManual Operativo de Estructuras de Datos\nValidación de la definición técnica (explicada de forma clara) del cerebro relacional estructurado en Airtable o Notion.\n\nDebe incluir obligatoriamente el esquema de tablas vinculadas generado mediante instrucciones a la IA (Omni AI) junto con los esquemas de transferencia de datos en formato JSON de las principales integraciones corporativas del ecosistema.\n\nSignifica que tenés que incluir en tu entrega el “esquema” (schema) de las tablas vinculadas y que ese esquema debe estar generado mediante instrucciones a la IA (Omni AI).\nEn la práctica, lo que te conviene hacer (y lo que un teacher suele esperar ver) es:\nLe pedís a Omni AI que te devuelva el esquema en JSON (por ejemplo: tablas/fields, tipos, y relaciones).\nPegás ese output en tu entrega (dentro del PDF o donde te pidan “manual”, según corresponda).\nO sea: no alcanza con describir “la IA generó el esquema”; tenés que mostrar el resultado (el esquema) ya formateado y usable.",
+        "height": 976,
+        "width": 688,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        160,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "2d847a94-def2-4a96-b1cd-b88dc6a9dd22",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "# 3. Construye el “Corazón” — Orquestación Lógica 🧠\n\nDesarrolla el flujo utilizando **Make o n8n**, siguiendo principios de arquitectura limpia.\n\n### 3.1. Trigger inteligente\n\nConfigura disparadores específicos para evitar ejecuciones y consumo innecesario de operaciones.\n\n**Ejemplos:**\n\n- `From now on` en Gmail.\n- Webhooks.\n- Triggers asociados únicamente a nuevos registros o cambios específicos.\n\n### 3.2. Motor de IA\n\nIntegra un modelo de **Claude u OpenAI**.\n\nDebes:\n\n- Mapear correctamente la variable que contiene la respuesta del modelo.\n  - Ejemplo: `Message.Content`\n- Limitar los **Max Tokens** según la tarea para optimizar costos.\n- Utilizar un modelo adecuado para la complejidad de cada operación.\n\n### 3.3. Gestión de errores — Resiliencia\n\nEs obligatorio implementar mecanismos de **Error Handling**.\n\nEl flujo debe incluir:\n\n- Directivas como `Resume` o `Break`.\n- Rutas alternativas ante errores.\n- Registro de errores.\n\n> Si la API de IA falla, el sistema no debe simplemente detenerse: debe registrar qué ocurrió y permitir su posterior revisión.",
+        "height": 976,
+        "width": 672,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        880,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "3fbb59a0-985d-4ed9-85e0-0dd348fbca23",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# 4. Implementa Human-in-the-loop 🧔🏻‍♂️👩🏻‍🦰\n\nImplementa una ruta donde:\n\n1. La IA genere o prepare la acción.\n2. El sistema envía una solicitud de aprobación mediante una opcion de estas:\n   - Slack\n   - Email\n3. Una persona revise el resultado.\n4. El flujo espere la aprobación.\n5. Solo después del feedback humano se contacte al cliente final o se ejecute la acción crítica.",
+        "height": 432,
+        "width": 544,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1600,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "0f1028e8-ae72-43dc-acff-3681bdf3c747",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "# 5. Conecta la “Voz” — Salida Multicanal 📧\n\nConfigura los canales mediante los cuales el sistema realizará la comunicación final.\n\n### Slack / Gmail\n\n- Mapea correctamente los **Thread ID**.\n- Mantén las conversaciones organizadas dentro del mismo hilo cuando corresponda.\n\n### WhatsApp\n\nSi utilizas mensajes proactivos:\n\n- Utiliza una **Plantilla (`Template`) aprobada**.\n- Utiliza el número de teléfono en **formato internacional**, incluyendo el prefijo `+`.\n",
+        "height": 512,
+        "width": 544,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1600,
+        1104
+      ],
+      "typeVersion": 1,
+      "id": "59ffbea2-050c-4af4-936d-1b4a4ee4ba74",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "# 6. Prueba, Documenta y Entrega ⚠️\n\n### 6.1. Test de estrés - stress-test\n\nEjecuta el flujo completo **al menos 10 veces**.\n\nNo pruebes únicamente el escenario ideal.\n\nTambién debes probar el **“Camino Infeliz”**, por ejemplo:\n\n- Datos incompletos.\n- Campos faltantes.\n- Respuestas inesperadas de una API.\n- Error del modelo de IA.\n- Datos que no cumplen las condiciones de los filtros.\n\nEl objetivo es comprobar que los:\n\n- filtros,\n- routers,\n- validaciones,\n- y rutas de error\n\nfuncionan correctamente.\n\n---\n\n### 6.2. Video Demo — Máximo 3 minutos\n\nGraba una demostración breve mostrando:\n\n1. El **Trigger**.\n2. El procesamiento dentro del **orquestador**.\n3. La intervención de la **IA**.\n4. El resultado final del flujo.\n\n> **Importante:** oculta todas las API Keys, tokens, contraseñas y credenciales sensibles durante la grabación.",
+        "height": 976,
+        "width": 560,
+        "color": "#232F41"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2272,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "e5bf56d4-a1a2-41f3-a747-a7a90e6f559d",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "# IMPORTANTE: Formato de entrega\n\n## Enlace Web repositorio **Github** con la documentación evidencia.\n\n- Diagrama de Arquitectura: Documento en formato  **PDF.**\n- Lógica del Flujo: **Worflow en formato .json** (n8n/make)\n\n## Enlaces Obligatorios: \n- Link en modo lectura a la Base de Datos (Airtable/Notion)\n- Capturas de pantalla de base de datos\n- Capturas de pantalla con evidencias de ejecución del flujo",
+        "height": 368,
+        "width": 512,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2864,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "29e1e8a4-7666-4728-b8d9-62743d27433c",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## ESQUEMA\n\n{ \"tabla\": \"Tickets de Soporte\", \"descripcion\": \"Centraliza y gestiona consultas y respuestas para soporte de usuarios.\", \"campos\": [ { \"nombre\": \"ticket-id\", \"tipo\": \"Autonumber\", \"esPrincipal\": true }, { \"nombre\": \"user-id\", \"tipo\": \"Single line text\" }, { \"nombre\": \"user-email\", \"tipo\": \"Single line text\" }, { \"nombre\": \"user-msg\", \"tipo\": \"Long text\" }, { \"nombre\": \"llm-respuesta\", \"tipo\": \"Long text\" }, { \"nombre\": \"estado\", \"tipo\": \"Single select\", \"opciones\": [ \"pendiente\", \"en revisión\", \"Aprobado por Humano\", \"Abierto\", \"Procesado por IA\", \"Cerrado\" ] }, { \"nombre\": \"Fecha de Creación\", \"tipo\": \"Date\", \"formula\": \"CREATED_TIME()\" } ] }",
+        "height": 368,
+        "width": 288,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        416,
+        1600
+      ],
+      "typeVersion": 1,
+      "id": "3f7fda71-388b-4af5-bbb9-40a36a098f8b",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyX",
+              "value": 15,
+              "unit": "minutes"
+            }
+          ]
+        },
+        "simple": false,
+        "filters": {},
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        48,
+        224
+      ],
+      "id": "b8ccf162-285f-4827-801d-b285429017ae",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "fAiBORMrM5s7Qeq0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.2,
+      "position": [
+        -224,
+        -624
+      ],
+      "id": "e25db8e3-670e-4e92-90db-b8bcf541e559",
+      "name": "Email Trigger (IMAP)",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Gmail Trigger').item.json.from.value[0].address }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        624,
+        400
+      ],
+      "id": "892ec1aa-5352-4687-85d0-b9627ee4a8b4",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        480,
+        400
+      ],
+      "id": "63017c86-6667-477a-9cb1-e4ac571f8457",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "T7ORORh0LbGISgIE",
+          "name": "Groq account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        },
+        "authentication": "airtableOAuth2Api",
+        "baseId": {
+          "__rl": true,
+          "value": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7/viwj5zpOkizfr0c6o?blocks=hide",
+          "mode": "url"
+        },
+        "tableId": {
+          "__rl": true,
+          "value": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7/viwj5zpOkizfr0c6o?blocks=hide",
+          "mode": "url"
+        },
+        "triggerField": "ticket-id",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.airtableTrigger",
+      "typeVersion": 1,
+      "position": [
+        528,
+        -704
+      ],
+      "id": "9e4a5879-5321-4baf-81e7-6f68037c8ec1",
+      "name": "Airtable Trigger",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "dJiMn6SwjbTYBYEu",
+          "name": "Airtable account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.fields['user-msg'] }}",
+        "options": {
+          "systemMessage": "Sos un asistente encargado de generar respuestas automáticas para consultas/reclamos de clientes y usuarios.\n\nEn base al mensaje del usuario genera una breve respuesta de máximo 250 caracteres.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        720,
+        -704
+      ],
+      "id": "8aa999bb-1706-44f1-8e2a-1f43513a0836",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.fields['user-id'] }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        944,
+        -560
+      ],
+      "id": "73c76f82-6ee1-430a-9493-36d6b58a348e",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {
+        "model": "qwen/qwen3.6-27b",
+        "options": {
+          "maxTokensToSample": 1800
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        816,
+        -560
+      ],
+      "id": "6d548602-f490-41b2-a657-4b6cf74cf096",
+      "name": "Groq Chat Model1",
+      "credentials": {
+        "groqApi": {
+          "id": "T7ORORh0LbGISgIE",
+          "name": "Groq account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyX",
+              "value": 15,
+              "unit": "minutes"
+            }
+          ]
+        },
+        "simple": false,
+        "filters": {},
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -784,
+        -752
+      ],
+      "id": "69238582-4174-47e6-a33c-4b10c378116b",
+      "name": "Gmail Trigger1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "fAiBORMrM5s7Qeq0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        },
+        "authentication": "airtableOAuth2Api",
+        "baseId": {
+          "__rl": true,
+          "value": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7/viwj5zpOkizfr0c6o?blocks=hide",
+          "mode": "url"
+        },
+        "tableId": {
+          "__rl": true,
+          "value": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7/viwj5zpOkizfr0c6o?blocks=hide",
+          "mode": "url"
+        },
+        "triggerField": "ticket-id",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.airtableTrigger",
+      "typeVersion": 1,
+      "position": [
+        -784,
+        -496
+      ],
+      "id": "54fc10d1-9e45-4bb7-8093-3876dae73da4",
+      "name": "Airtable Trigger1",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "dJiMn6SwjbTYBYEu",
+          "name": "Airtable account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -576,
+        -624
+      ],
+      "id": "80646f1b-a02c-4da1-bb0c-cc6cecac8ef4",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0BU5H2N1UM",
+          "mode": "list",
+          "cachedResultName": "nuevo-canal"
+        },
+        "text": "=ALERTA: error en workflow - revisar:\n\nNodo: {{ $json.id }}\nWorkflow: {{ $workflow.name }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.7,
+      "position": [
+        944,
+        368
+      ],
+      "id": "38fc8fd8-66ba-4fde-904d-8c32f5c1fb90",
+      "name": "Notificar error",
+      "webhookId": "fff1c0ab-c1eb-4162-bf26-6f055e24025a",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "M8wR7iNiU7MzsRAV",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Gmail Trigger').item.json.text }}",
+        "options": {
+          "systemMessage": "Sos un asistente encargado de generar respuestas automáticas para consultas/reclamos de clientes y usuarios.\n\nEn base al mensaje del usuario genera una breve respuesta de máximo 250 caracteres.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        544,
+        224
+      ],
+      "id": "4fdcab67-a761-4db6-8c34-b07f3045189e",
+      "name": "Agente AI - Asistente a tickets de usuario",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailHitlTool",
+      "typeVersion": 2.2,
+      "position": [
+        48,
+        -688
+      ],
+      "id": "6a14245d-4bf8-4980-a1a6-6b74c296a526",
+      "name": "Gmail",
+      "webhookId": "ae4452fe-495a-4f52-bda8-ef7907d3917e",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "fAiBORMrM5s7Qeq0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTool",
+      "typeVersion": 1.2,
+      "position": [
+        176,
+        -560
+      ],
+      "id": "3f335f57-7c63-4a8a-b095-398b3532dd0b",
+      "name": "Tarea que necesita Aprobacion Humana",
+      "webhookId": "58feac26-0762-46fa-8fab-7741f6dea18f",
+      "credentials": {
+        "telegramApi": {
+          "id": "RBfgmcyNxbvbTZnh",
+          "name": "Borrar"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "sendTo": "salkinsantiago@gmail.com",
+        "subject": "=Aprobar Respuesta:  {{ $('Gmail Trigger').item.json.subject }}",
+        "message": "=Necesitamos aprobar esta respuesta a un usuario:\n{{ $json.output }}",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double",
+            "approveLabel": "Aceptar",
+            "disapproveLabel": "Rechazar"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        944,
+        144
+      ],
+      "id": "59988294-1f39-4249-9b46-0a5e6dadc34a",
+      "name": "Send message and wait for response",
+      "webhookId": "975793df-7161-48ee-8293-94de84ffe159",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "fAiBORMrM5s7Qeq0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "06fb9467-97e4-438d-8ba6-1dbab9c355b3",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1168,
+        144
+      ],
+      "id": "6e0712ff-9c89-42e6-a09b-98a2663f0c8b",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7/viwj5zpOkizfr0c6o?blocks=hide",
+          "mode": "url"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblviaX1cZqKUrKE7",
+          "mode": "list",
+          "cachedResultName": "Tickets de Soporte",
+          "cachedResultUrl": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "estado": "pendiente",
+            "user-msg": "={{ $json.text }}",
+            "user-email": "={{ $json.from.value[0].address }}",
+            "user-id": "={{ $json.from.value[0].name }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ticket-id",
+              "displayName": "ticket-id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "user-id",
+              "displayName": "user-id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "user-email",
+              "displayName": "user-email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "user-msg",
+              "displayName": "user-msg",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "llm-respuesta",
+              "displayName": "llm-respuesta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "pendiente",
+                  "value": "pendiente"
+                },
+                {
+                  "name": "en revisión",
+                  "value": "en revisión"
+                },
+                {
+                  "name": "Aprobado por Humano",
+                  "value": "Aprobado por Humano"
+                },
+                {
+                  "name": "Abierto",
+                  "value": "Abierto"
+                },
+                {
+                  "name": "Procesado por IA",
+                  "value": "Procesado por IA"
+                },
+                {
+                  "name": "Cerrado",
+                  "value": "Cerrado"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Creación",
+              "displayName": "Fecha de Creación",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        320,
+        224
+      ],
+      "id": "7ececa72-6f49-4c90-93d4-af5fbd5a2b10",
+      "name": "Crear ticket",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "dJiMn6SwjbTYBYEu",
+          "name": "Airtable account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7/viwj5zpOkizfr0c6o",
+          "mode": "url"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblviaX1cZqKUrKE7",
+          "mode": "list",
+          "cachedResultName": "Tickets de Soporte",
+          "cachedResultUrl": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Crear ticket').item.json.id }}",
+            "llm-respuesta": "={{ $('Agente AI - Asistente a tickets de usuario').item.json.output }}",
+            "estado": "Aprobado por Humano"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "ticket-id",
+              "displayName": "ticket-id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "user-id",
+              "displayName": "user-id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "user-email",
+              "displayName": "user-email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "user-msg",
+              "displayName": "user-msg",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "llm-respuesta",
+              "displayName": "llm-respuesta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "pendiente",
+                  "value": "pendiente"
+                },
+                {
+                  "name": "en revisión",
+                  "value": "en revisión"
+                },
+                {
+                  "name": "Aprobado por Humano",
+                  "value": "Aprobado por Humano"
+                },
+                {
+                  "name": "Abierto",
+                  "value": "Abierto"
+                },
+                {
+                  "name": "Procesado por IA",
+                  "value": "Procesado por IA"
+                },
+                {
+                  "name": "Cerrado",
+                  "value": "Cerrado"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Creación",
+              "displayName": "Fecha de Creación",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        1408,
+        32
+      ],
+      "id": "c76c06d5-0dc8-4dcf-b6d1-21cd267339bc",
+      "name": "Actualizar Registro - aprobado",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "dJiMn6SwjbTYBYEu",
+          "name": "Airtable account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7/viwj5zpOkizfr0c6o",
+          "mode": "url"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblviaX1cZqKUrKE7",
+          "mode": "list",
+          "cachedResultName": "Tickets de Soporte",
+          "cachedResultUrl": "https://airtable.com/appRKKcCDnArJyuLS/tblviaX1cZqKUrKE7"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Crear ticket').item.json.id }}",
+            "llm-respuesta": "={{ $('Agente AI - Asistente a tickets de usuario').item.json.output }}",
+            "estado": "Cerrado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "ticket-id",
+              "displayName": "ticket-id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "user-id",
+              "displayName": "user-id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "user-email",
+              "displayName": "user-email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "user-msg",
+              "displayName": "user-msg",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "llm-respuesta",
+              "displayName": "llm-respuesta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "pendiente",
+                  "value": "pendiente"
+                },
+                {
+                  "name": "en revisión",
+                  "value": "en revisión"
+                },
+                {
+                  "name": "Aprobado por Humano",
+                  "value": "Aprobado por Humano"
+                },
+                {
+                  "name": "Abierto",
+                  "value": "Abierto"
+                },
+                {
+                  "name": "Procesado por IA",
+                  "value": "Procesado por IA"
+                },
+                {
+                  "name": "Cerrado",
+                  "value": "Cerrado"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Creación",
+              "displayName": "Fecha de Creación",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        1408,
+        224
+      ],
+      "id": "ddcf1ef3-f56d-4aae-9d93-0ee035f1c4ac",
+      "name": "Actualizar Registro - rechazado",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "dJiMn6SwjbTYBYEu",
+          "name": "Airtable account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Crear ticket",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente AI - Asistente a tickets de usuario",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente AI - Asistente a tickets de usuario",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente AI - Asistente a tickets de usuario": {
+      "main": [
+        [
+          {
+            "node": "Send message and wait for response",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Notificar error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notificar error": {
+      "main": [
+        []
+      ]
+    },
+    "Gmail": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Tarea que necesita Aprobacion Humana": {
+      "ai_tool": [
+        [
+          {
+            "node": "Gmail",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send message and wait for response": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Actualizar Registro - aprobado",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Actualizar Registro - rechazado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear ticket": {
+      "main": [
+        [
+          {
+            "node": "Agente AI - Asistente a tickets de usuario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "0b6e03cd-1a78-44ef-8b63-81248ffb0355",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ccba3612e7c942e4cfa6dc3c4a24fffd19e3bc2f14b16a1c0f73303aaac19a77"
+  },
+  "nodeGroups": [],
+  "id": "4RgmwDIq3ZZb8V1V",
+  "tags": []
+}
